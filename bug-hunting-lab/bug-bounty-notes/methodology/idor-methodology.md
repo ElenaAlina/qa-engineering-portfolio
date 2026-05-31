@@ -1,12 +1,26 @@
-1. Create Multiple Accounts
-User A
-User B
+# IDOR Methodology
 
-3. Capture Requests
+## 1. Create Multiple Accounts
+Create at least two accounts:
 
-Using Burp Suite.
+- User A
+- User B
 
-3. Identify Object References
+Purpose:
+Verify whether resources belonging to User B can be accessed by User A.
+
+## 2. Capture Requests
+
+Use Burp Suite Proxy or Repeater.
+
+Focus on:
+
+- user_id
+- account_id
+- order_id
+- document_id
+
+## 3. Identify Object References
 
 Examples:
 
@@ -15,18 +29,19 @@ order_id
 file_id
 document_id
 
-4. Modify References
+## 4. Modify References
 
 Replace:
 
 IDs
 UUIDs
 Account references
-5. Replay Request
+
+## 5. Replay Request
 
 Observe response.
 
-6. Verify Impact
+## 6. Verify Impact
 
 Can you:
 
@@ -34,7 +49,7 @@ Read?
 Modify?
 Delete?
 
-7. Document
+## 7. Document
 Request
 Response
 Impact
