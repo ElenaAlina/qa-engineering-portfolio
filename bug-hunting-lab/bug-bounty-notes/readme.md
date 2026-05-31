@@ -9,3 +9,5 @@
 👉 60% methodology
 👉 30% attack simulations
 👉 10% writeups
+
+20% learn 80% practice
