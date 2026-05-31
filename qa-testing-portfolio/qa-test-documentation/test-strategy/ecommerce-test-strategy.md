@@ -20,7 +20,7 @@ Shopping Cart
 Checkout Process
 Logout Functionality
 
-Out of Scope
+### Out of Scope
 Performance Testing
 Penetration Testing
 Accessibility Testing
