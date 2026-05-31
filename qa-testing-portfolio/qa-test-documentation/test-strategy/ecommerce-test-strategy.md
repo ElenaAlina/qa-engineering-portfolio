@@ -1,4 +1,4 @@
-```markdown
+
 #Test Strategy
 
 ## 1. Introduction
