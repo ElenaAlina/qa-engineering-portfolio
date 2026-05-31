@@ -56,7 +56,7 @@ GitHub
 - Visual Studio Code
 
 ## 7. Resources
-1 Tester
+1 QA Engineer
 
 ## 8. Risks
 - Limited functionality available in demo application
