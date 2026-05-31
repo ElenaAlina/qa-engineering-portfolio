@@ -13,14 +13,14 @@ Purpose: Define the overall testing approach.
 - Support automated regression testing
 
 ## 3. Scope
-### In Scope
+In Scope
 Authentication
 Product Inventory
 Shopping Cart
 Checkout Process
 Logout Functionality
 
-### Out of Scope
+Out of Scope
 Performance Testing
 Penetration Testing
 Accessibility Testing
