@@ -1,4 +1,6 @@
 # Features to teste
 - Login
-- - Logout
-  - 
+- Logout
+- Products
+- Cart
+- Checkout
