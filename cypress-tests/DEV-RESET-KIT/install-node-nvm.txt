@@ -1,0 +1,15 @@
+1. Install nvm for Windows:
+https://github.com.coreybutler/nvm-windows/realeases
+Download: nvm-setup.exe
+
+2. Install path:
+ C:\Program Files\nvm
+ C:\Program Files\node.js
+
+3. Commands
+nvm install 18.20.8
+nvm use 18.20.8
+
+4. Verify
+node -v
+npm -v

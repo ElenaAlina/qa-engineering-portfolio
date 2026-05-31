@@ -1,0 +1,29 @@
+{
+  "name": "test-automation-projects",
+  "version": "1.0.0",
+  "description": "Cypress projects portofolio containing test plan, test scope, test cases, test steps and more.",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaAlina/test-automation-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ElenaAlina/test-automation-projects/issues"
+  },
+  "homepage": "https://github.com/ElenaAlina/test-automation-projects#readme",
+  "dependencies": {
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
+  },
+  "devDependencies": {
+    "cypress": "^15.14.2"
+  }
+}

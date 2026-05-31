@@ -1,0 +1,17 @@
+1. Initialize repo
+git init
+
+2. Add files
+git add .
+
+3. Commit
+git commit -m "message"
+
+4. Connect GitHub
+git remote add origin <repository-url>
+
+5. Push
+git push -u origin main
+
+Check
+git status
