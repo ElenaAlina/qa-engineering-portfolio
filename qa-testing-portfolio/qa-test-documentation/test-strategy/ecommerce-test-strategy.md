@@ -14,28 +14,28 @@ Purpose: Define the overall testing approach.
 
 ## 3. Scope
 ### In Scope
-Authentication
-Product Inventory
-Shopping Cart
-Checkout Process
-Logout Functionality
+- Authentication
+- Product Inventory
+- Shopping Cart
+- Checkout Process
+- Logout Functionality
 
 ### Out of Scope
-Performance Testing
-Penetration Testing
-Accessibility Testing
+- Performance Testing
+- Penetration Testing
+- Accessibility Testing
 
 ## 4. Test Types
-Smoke Testing
-Functional Testing
-UI Testing
-Regression Testing
-Automation Testing
-Exploratory Testing
+- Smoke Testing
+- Functional Testing
+- UI Testing
+- Regression Testing
+- Automation Testing
+- Exploratory Testing
 
 ## 5. Test Environment
-Application:
-https://www.saucedemo.com
+- Application:
+- https://www.saucedemo.com
 
 Browser:
 Google Chrome/Mozilla Firefox/Microsoft Edge/Opera
@@ -50,20 +50,23 @@ Version Control:
 GitHub
 
 ## 6. Tools
-Cypress
-Chrome DevTools
-GitHub
-Visual Studio Code
+- Cypress
+- Chrome DevTools
+- GitHub
+- Visual Studio Code
 
-## 7. Risks
-Limited functionality available in demo application
-No backend access
-No production-like data
+## 7. Resources
+1 Tester
 
-## 8. Entry & Exit Criteria
-Entry:
+## 8. Risks
+- Limited functionality available in demo application
+- No backend access
+- No production-like data
+
+## 9. Entry & Exit Criteria
+### Entry:
 Application available
 
-Exit:
+### Exit:
 No Critical defects
 All smoke tests passed
