@@ -18,4 +18,6 @@ Checkout: 2
 
 ### Total: 10
 
+## Project's link: https://github.com/ElenaAlina/qa-engineering-portfolio/tree/3f1a87db43c3a8762101587f32ed7e9989cd76f5/cypress-tests
+
 
