@@ -5,3 +5,7 @@
 ## Checklists = what to verify
 ## XSS/IDOR folders = technical notes and playloads
 ## Attack Simulation = a real scenario, executed steps, real requests -> HOW YOU TESTED A SYSTEM
+
+👉 60% methodology
+👉 30% attack simulations
+👉 10% writeups
