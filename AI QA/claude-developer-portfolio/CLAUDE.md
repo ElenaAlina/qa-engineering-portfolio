@@ -46,3 +46,19 @@ Empty leaf folders contain a `.gitkeep` placeholder so git tracks them until rea
 ## Auth for pushes
 
 GitHub auth is handled via Git Credential Manager (`credential.helper manager`), backed by a token stored in Windows Credential Manager. No token is stored in this repo or in any file here.
+
+If the credential ever needs to be re-approved (token rotated, cache cleared): don't pipe a multi-line credential record straight into `git credential approve` via a PowerShell `|` pipe — it mangles the input and fails with "refusing to work with credential missing protocol field". Write the record (`protocol=https`, `host=github.com`, `username=x-access-token`, `password=<token>`, blank line) to a temp file with `[System.IO.File]::WriteAllText` (no BOM), then feed it in via `cmd /c "git credential approve < file"`, and delete the file immediately after.
+
+Never ask for the token to be pasted into chat — have it set as a Windows user env var (`[System.Environment]::SetEnvironmentVariable("GH_TOKEN","<token>","User")`) outside the conversation, then just reload it with `[System.Environment]::GetEnvironmentVariable("GH_TOKEN","User")` in a command, never echoing the value.
+
+## Local machine notes (this Windows box)
+
+- Neither `git` nor `winget` is on PATH in a fresh PowerShell process. Every PowerShell command that needs them must first run:
+  `$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")`
+- If git isn't installed yet, `winget` itself is reachable via the bundled App Installer package even when not on PATH:
+  ```powershell
+  $p = Get-AppxPackage -Name "Microsoft.DesktopAppInstaller"
+  $exe = Join-Path $p.InstallLocation "winget.exe"
+  & $exe install --id Git.Git -e --source winget --accept-package-agreements --accept-source-agreements
+  ```
+- A User-scope env var set outside the current session (e.g. via System Properties or another terminal) isn't visible via `$env:NAME` in a fresh process — reload explicitly with `[System.Environment]::GetEnvironmentVariable("NAME","User")`.
