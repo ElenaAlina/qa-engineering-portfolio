@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-09T08:58:58.760Z",
+    "end": "2026-10-09T08:59:09.735Z",
+    "duration": 10975,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "768f1b85-9e94-4f2d-a457-06dd74a23770",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e-test-suite\\cart\\cart.cy.js",
+      "file": "cypress\\e2e\\e2e-test-suite\\cart\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f4e422e4-21f0-4442-a48e-ffef1c72f88a",
+          "title": "Cart Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add to cart & Remove items from cart",
+              "fullTitle": "Cart Test Suite Add to cart & Remove items from cart",
+              "timedOut": null,
+              "duration": 5845,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cartPage.checkProducts();\ncartPage.clickAddToCart();\ncartPage.openCart();\ncy.get('.shopping_cart_badge').should('have.text', '1');\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('[data-test=\"continue-shopping\"]').should('be.visible').click();\ncy.get('.shopping_cart_badge').should('have.text', '1');\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('[data-test=\"continue-shopping\"]').should('be.visible').click();\ncy.get('[data-test=\"add-to-cart-test.allthethings()-t-shirt-(red)\"]').click();\ncy.get('.shopping_cart_badge').should('have.text', '2');\ncy.wait(2000);\ncy.get('[data-test=\"remove-test.allthethings()-t-shirt-(red)\"]').click();\ncy.get('.shopping_cart_badge').should('have.text', '1');\ncy.wait(2000);\ncy.get('[data-test=\"add-to-cart-test.allthethings()-t-shirt-(red)\"]').click();\ncy.get('.shopping_cart_badge').should('have.text', '2');\ncy.get('[data-test=\"remove-sauce-labs-bike-light\"]').should('not.exist');\ncy.get('[data-test=\"shopping-cart-badge\"]').should('be.visible').and('have.text', '2');",
+              "err": {},
+              "uuid": "ce71df3c-9550-4749-85f5-3ba10044a9b9",
+              "parentUUID": "f4e422e4-21f0-4442-a48e-ffef1c72f88a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout process",
+              "fullTitle": "Cart Test Suite Checkout process",
+              "timedOut": null,
+              "duration": 2753,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//check the products and add an item to the cart\ncartPage.checkProducts();\ncartPage.clickAddToCart();\ncy.get('.shopping_cart_badge').should('have.text', '1');\n//click on the cart and proceed to checkout\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('[data-test=\"checkout\"]').should('be.visible').click();\n//add the checkout information and cancel the process\ncy.get('[data-test=\"firstName\"]').type('Andrew');\ncy.get('[data-test=\"lastName\"]').type('Doe');\ncy.get('[data-test=\"postalCode\"]').type('12345');\ncy.get('[data-test=\"cancel\"]').should('be.visible').click();\n//click on the cart and proceed to checkout\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('[data-test=\"checkout\"]').should('be.visible').click();\n//add the checkout information and continue the process\ncy.get('[data-test=\"firstName\"]').type('Mark');\ncy.get('[data-test=\"lastName\"]').type('Poe');\ncy.get('[data-test=\"postalCode\"]').type('56789');\ncy.get('[data-test=\"continue\"]').should('be.visible').click();\n//finish the checkout process and verify the order completion\ncy.get('[data-test=\"finish\"]').should('be.visible').click();\ncy.get('.complete-header').should('have.text', 'Thank you for your order!');\ncy.get('[data-test=\"shopping-cart-link\"]').click();\ncy.get('cart_item').should('have.length', '0');",
+              "err": {},
+              "uuid": "550c5155-abdf-423d-bcf2-c2f9339fd211",
+              "parentUUID": "f4e422e4-21f0-4442-a48e-ffef1c72f88a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check cart API requests",
+              "fullTitle": "Cart Test Suite Check cart API requests",
+              "timedOut": null,
+              "duration": 984,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login is already performed in beforeEach()\n// Verify inventory page\ncy.url().should('include', '/inventory.html');\ncy.get('.inventory_list').should('be.visible');\n// Add one product to cart\ncy.get('[data-test^=\"add-to-cart\"]').first().click();\n// Open cart\ncy.get('[data-test=\"shopping-cart-link\"]').click();\n// Verify cart contains one item\ncy.get('.cart_item').should('have.length', 1);",
+              "err": {},
+              "uuid": "547ee748-1921-4ecc-9d5b-963f9bf11acd",
+              "parentUUID": "f4e422e4-21f0-4442-a48e-ffef1c72f88a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ce71df3c-9550-4749-85f5-3ba10044a9b9",
+            "550c5155-abdf-423d-bcf2-c2f9339fd211",
+            "547ee748-1921-4ecc-9d5b-963f9bf11acd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9582,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

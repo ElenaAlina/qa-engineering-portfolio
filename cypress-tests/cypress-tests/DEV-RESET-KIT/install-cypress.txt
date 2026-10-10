@@ -1,0 +1,15 @@
+1. cd project
+
+2. Install dependencies:
+npm install
+
+3. Install Cypress
+npm install cypress --save-dev
+
+4. Open Cypress
+npx cypress open
+
+5. If error "Cannot find module cypress"
+- run npm install again
+- delete node_modules + package-lock.json
+- reinstall
