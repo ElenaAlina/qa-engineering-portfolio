@@ -1,23 +1,137 @@
 {
   "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2026-04-15T08:37:33.077Z",
-    "end": "2026-04-15T08:37:33.078Z",
-    "duration": 1,
-    "testsRegistered": 0,
-    "passPercent": null,
-    "pendingPercent": null,
+    "start": "2026-10-10T17:12:02.458Z",
+    "end": "2026-10-10T17:12:07.078Z",
+    "duration": 4620,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    false
+    {
+      "uuid": "48906f51-8905-479c-9780-ad532232257a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e-test-suite\\auth\\login.cy.js",
+      "file": "cypress\\e2e\\e2e-test-suite\\auth\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "286c6024-3454-4dc9-a857-9c6171558429",
+          "title": "Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01 - Login successfully with valid credentials",
+              "fullTitle": "Login Test TC01 - Login successfully with valid credentials",
+              "timedOut": null,
+              "duration": 1003,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/'), loginPage.enterUsername('standard_user'), loginPage.enterPassword('secret_sauce'), loginPage.clickLogin();",
+              "err": {},
+              "uuid": "6c3c961c-ab94-4141-b109-3484a64fae1e",
+              "parentUUID": "286c6024-3454-4dc9-a857-9c6171558429",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02 - Login failed with invalid username",
+              "fullTitle": "Login Test TC02 - Login failed with invalid username",
+              "timedOut": null,
+              "duration": 1156,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/'), loginPage.enterUsername('standard_user1'), loginPage.enterPassword('secret_sauce'), loginPage.clickLogin();",
+              "err": {},
+              "uuid": "493a4e63-d291-4a25-9070-1a0ee6ae6617",
+              "parentUUID": "286c6024-3454-4dc9-a857-9c6171558429",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC03 - Login failed with invalid password",
+              "fullTitle": "Login Test TC03 - Login failed with invalid password",
+              "timedOut": null,
+              "duration": 824,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/'), loginPage.enterUsername('standard_user'), loginPage.enterPassword('secret_sauce1'), loginPage.clickLogin();",
+              "err": {},
+              "uuid": "0dc7a0c3-0a10-42fb-8ef7-b1c53a61cf9d",
+              "parentUUID": "286c6024-3454-4dc9-a857-9c6171558429",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC04 - Login failed no credentials",
+              "fullTitle": "Login Test TC04 - Login failed no credentials",
+              "timedOut": null,
+              "duration": 194,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/'), loginPage.clickLogin();",
+              "err": {},
+              "uuid": "2ae1400c-6467-4727-ba5a-15cd651280bc",
+              "parentUUID": "286c6024-3454-4dc9-a857-9c6171558429",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6c3c961c-ab94-4141-b109-3484a64fae1e",
+            "493a4e63-d291-4a25-9070-1a0ee6ae6617",
+            "0dc7a0c3-0a10-42fb-8ef7-b1c53a61cf9d",
+            "2ae1400c-6467-4727-ba5a-15cd651280bc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3177,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
   ],
   "meta": {
     "mocha": {
@@ -33,7 +147,7 @@
         "useInlineDiffs": false,
         "code": true
       },
-      "version": "7.1.4"
+      "version": "8.1.1"
     },
     "marge": {
       "options": {

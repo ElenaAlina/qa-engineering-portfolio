@@ -1,23 +1,20 @@
-const {defineConfig} = require('cypress');
-module.exports = {
-  //watchForFileChanges: true so that Cypress to take care of automatically re-running the tests when a file is changed
+const {defineConfig} = require('cypress')
+module.exports = defineConfig({
+  allowCypressEnv: false,
+
+  e2e: {
+    //to don't executes the tests by its own
     watchForFileChanges: false,
-    "reporter": "mochawesome",
-    "reporterOptions":{
-      "charts": true,
+    "reporter":"mochawesome",
+    "reporterOptions": {
       "reportDir": "cypress/reports",
       "overwrite": false,
       "html": false,
-      "json": true
+      "json": true,
+      "charts": true
     },
-  e2e: {
-    
     setupNodeEvents(on, config) {
       // implement node event listeners here
-
-      //added for download file plugin
-      require('cypress-downloadfile/lib/addPlugin')(on, config);
-      return config;
     },
   },
-};
+});

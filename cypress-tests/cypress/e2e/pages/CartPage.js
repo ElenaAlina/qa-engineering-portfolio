@@ -9,7 +9,8 @@ export class CartPage{
     products = '[data-test="title"]'
     addToCartButton = '[data-test="add-to-cart-sauce-labs-backpack"]'
     elements = {
-        title:'.title'
+        title:'.title',
+        cart: '.shopping_cart_link'
     }
     checkProducts(){
         cy.get(this.elements.title)
@@ -20,4 +21,5 @@ export class CartPage{
     clickAddToCart(){
         cy.get(this.addToCartButton).click()
     }
+    openCart() { cy.get(this.elements.cart).click() }
 }

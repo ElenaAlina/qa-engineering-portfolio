@@ -1,13 +1,38 @@
 {
-  "name": "cypress",
+  "name": "test-automation-projects",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cypress projects portofolio containing test plan, test scope, test cases, test steps and more.",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "delete:raportJson": "cmd /c \"del /q cypress\\reports\\*.json 2>nul\"",
+    "delete:raportHtml": "cmd /c \"del /q cypress\\reports\\*.html 2>nul\"",
+    "cy:run": "cypress run",
+    "report:merge": "mochawesome-merge \"cypress/reports/mochawesome_*.json\" -o cypress/reports/output.json",
+    "report:html": "marge cypress/reports/output.json -f report -o cypress/reports",
+    "test:report": "npm run cy:run && npm run report:merge && npm run report:html",
+    "test": "npm run delete:raportJson && npm run delete:raportHtml && npm run cy:run && npm run report:merge && npm run report:html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaAlina/test-automation-projects.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ElenaAlina/test-automation-projects/issues"
+  },
+  "homepage": "https://github.com/ElenaAlina/test-automation-projects#readme",
+  "dependencies": {
+    "mochawesome": "^8.1.1",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
+  },
+  "devDependencies": {
+    "cypress": "^15.21.1"
+  },
+  "allowScripts": {
+    "cypress@15.21.1": true
+  }
 }

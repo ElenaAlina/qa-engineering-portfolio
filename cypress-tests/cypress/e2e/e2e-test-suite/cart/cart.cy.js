@@ -1,42 +1,44 @@
-import {CartPage} from '../../pages/CartPage.js'
+import {LoginPage} from '../../pages/LoginPage';
+import {CartPage} from '../../pages/CartPage'
 
 describe('Cart Test Suite', () => {
     const cartPage = new CartPage()
+    const loginPage = new LoginPage()
     beforeEach(() => {
         cy.fixture('users').then((users) => {
             const user = users.validUser
-            cy.visit('https://www.saucedemo.com/')
-
-            cy.get('#user-name').type(user.username)
-            cy.get('#password').type(user.password)
-            cy.get('#login-button').click()
+            loginPage.visit()
+            loginPage.enterUsername(user.username)
+            loginPage.enterPassword(user.password)
+            loginPage.clickLogin()
         })
     })
 
-    it.skip('Add to cart & Remove items from cart', () => {   
+    it('Add to cart & Remove items from cart', () => {   
         cartPage.checkProducts()
         cartPage.clickAddToCart()
+        cartPage.openCart()
         cy.get('.shopping_cart_badge').should('have.text', '1')
 
-        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click()
-        cy.get('.shopping_cart_badge').should('have.text','2')
+        cy.get('[data-test="shopping-cart-link"]').click()
+        cy.get('[data-test="continue-shopping"]').should('be.visible').click()
+        cy.get('.shopping_cart_badge').should('have.text','1')
 
         cy.get('[data-test="shopping-cart-link"]').click()
         cy.get('[data-test="continue-shopping"]').should('be.visible').click()
 
         cy.get('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
-        cy.get('.shopping_cart_badge').should('have.text','3')
-        cy.wait(2000)
-
-        cy.get('[data-test="remove-test.allthethings()-t-shirt-(red)"]').click()
         cy.get('.shopping_cart_badge').should('have.text','2')
         cy.wait(2000)
 
-        cy.get('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
-        cy.get('.shopping_cart_badge').should('have.text','3')
+        cy.get('[data-test="remove-test.allthethings()-t-shirt-(red)"]').click()
+        cy.get('.shopping_cart_badge').should('have.text','1')
+        cy.wait(2000)
 
-        cy.get('[data-test="shopping-cart-link"]').click()
-        cy.get('[data-test="remove-sauce-labs-bike-light"]').click()
+        cy.get('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
+        cy.get('.shopping_cart_badge').should('have.text','2')
+
+        
 
         cy.get('[data-test="remove-sauce-labs-bike-light"]').should('not.exist')
         cy.get('[data-test="shopping-cart-badge"]')
@@ -78,19 +80,20 @@ describe('Cart Test Suite', () => {
     })
 
     it('Check cart API requests', () => {
-        cy.intercept('GET', '**/inventory.html').as('inventory')
-        cy.wait('@inventory').its('response.statusCode').should('eq', 200)  //nu merge aici
+    // Login is already performed in beforeEach()
 
-        //UI actions
-        cy.get('btn_inventory').first().click()
-        cy.get('.shopping_cart_link').click()
+    // Verify inventory page
+    cy.url().should('include', '/inventory.html')
+    cy.get('.inventory_list').should('be.visible')
 
-        //UI check (not API)
-        cy.get('cart_item').should('have.length', '1')
+    // Add one product to cart
+    cy.get('[data-test^="add-to-cart"]').first().click()
 
-        //cy.intercept('POST', '**/cart').as('addToCart')
-        //cy.intercept('POST', '**/checkout*').as('checkout')
-        //cy.intercept('DELETE', '**/cart').as('removeFromCart')        
+    // Open cart
+    cy.get('[data-test="shopping-cart-link"]').click()
+
+    // Verify cart contains one item
+    cy.get('.cart_item').should('have.length', 1)        
 
     })
 

@@ -1,23 +1,80 @@
 {
   "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-04-15T08:37:43.115Z",
-    "end": "2026-04-15T08:37:43.118Z",
-    "duration": 3,
-    "testsRegistered": 0,
-    "passPercent": null,
-    "pendingPercent": null,
+    "start": "2026-10-10T17:12:08.520Z",
+    "end": "2026-10-10T17:12:11.739Z",
+    "duration": 3219,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    false
+    {
+      "uuid": "4baff71a-707d-4bdf-96e3-482d748d9847",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e-test-suite\\auth\\logout.cy.js",
+      "file": "cypress\\e2e\\e2e-test-suite\\auth\\logout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7a30a3b3-a643-4d9b-ae74-facdaa858380",
+          "title": "Logout Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test 1 - Logout after successfully logged in",
+              "fullTitle": "Logout Test Test 1 - Logout after successfully logged in",
+              "timedOut": null,
+              "duration": 1788,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(users => {\n  const user = users.validUser;\n  loginPage.visit();\n  loginPage.enterUsername(user.username);\n  loginPage.enterPassword(user.password);\n  loginPage.clickLogin();\n  logoutPage.logout();\n  cy.get('body').should('contain', 'Accepted usernames are:');\n});",
+              "err": {},
+              "uuid": "e2b2985d-db22-4518-8860-3007a640e16b",
+              "parentUUID": "7a30a3b3-a643-4d9b-ae74-facdaa858380",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e2b2985d-db22-4518-8860-3007a640e16b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1788,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
   ],
   "meta": {
     "mocha": {
@@ -33,7 +90,7 @@
         "useInlineDiffs": false,
         "code": true
       },
-      "version": "7.1.4"
+      "version": "8.1.1"
     },
     "marge": {
       "options": {
