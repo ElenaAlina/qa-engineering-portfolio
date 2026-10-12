@@ -36,24 +36,84 @@ it('SEC03 - Password is masked', () => {
         .should('have.attr', 'type', 'password');
 });
 
-it.skip('SEC04 - Unauthorized access to inventory page', () => {  
+//implies verifying the access to the inventory link without being authenticated, and checking that the user is redirected to the login page.
+it('SEC04 - Unauthorized access to inventory page', () => { 
+    cy.visit('https://www.saucedemo.com/inventory.html', {
+        failOnStatusCode: false
+    });
 
+    cy.get('[data-test="username"]').should('be.visible');
+    cy.get('[data-test="password"]').should('be.visible');
+
+    cy.url().should('not.include', '/inventory.html');
  });
+//try to access the cart page without being authenticated, and check that the user is redirected to the login page.
+//the check is made at the user interface level, by checking that the username and password fields are visible, and that the URL does not include /cart.html
+it('SEC-05 - Unauthorized access to cart', () => {
+    cy.visit('https://www.saucedemo.com/cart.html', {
+        failOnStatusCode: false
+    });
 
-it.skip('SEC-05 - Unauthorized access to cart', () => {
-    
+    cy.get('[data-test="username"]').should('be.visible');
+    cy.get('[data-test="password"]').should('be.visible');
+
+    cy.url().should('not.include', '/cart.html');
 });
+//checks that the user cannot acces the protected links after the logout, and that the user is redirected to the login page. 
+// The check is made at the user interface level, by checking that the username and password fields are visible, 
+// and that the URL does not include /inventory.html or /cart.html
+it('SEC06 - Logout invalidates access', () => {
+    cy.fixture('users').then((users) => {
+            const user = users.validUser
+            loginPage.visit()
+            loginPage.enterUsername(user.username)
+            loginPage.enterPassword(user.password)
+            loginPage.clickLogin()
+        
 
-it.skip('SEC06 - Logout invalidates access', () => {
+        cy.url().should('include', '/inventory.html');
 
+        logoutPage.logout();
+
+        cy.get('[data-test="login-button"]').should('be.visible');
+
+        cy.visit('https://www.saucedemo.com/inventory.html', {
+            failOnStatusCode: false
+        });
+
+        cy.get('[data-test="login-button"]').should('be.visible');
+        cy.url().should('not.include', '/inventory.html');
 });
-
+});
+//check the timeout of the session after a period of inactivity
+//Precondition: authenticated user / Action: wait for a period of inactivity / Expected result: user is logged out and redirected to the login page
+//BLOCKED - EXPLORATORY CHECK THE EXPIRATION TIME ON SAUCEDEMO.COM - the session timeout is not specified in the documentation, and the session does not expire after a period of inactivity.
 it.skip('SEC-07 - Session timeout after inactivity', () => {
    
 });
 
-it.skip('SEC08 - Security headers', () => {
+//check the HTTP security headers, such as Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, Referrer-Policy and Strict-Transport-Security.
+//Content-Security-Policy (CSP): restricts script sources and reduce XSS attacks
+//Strict-Transport-Security(HSTS): indicates on browser to use HTTPS for future connections
+//X-Content-Type-Options: the nosniff value, helps MIME type sniffing to be interpreted and reduce the risk of drive-by downloads
+//X-Frame-Options: helps prevent clickjacking by limiting the ability of the page to be loaded/embedded in iframe elements
+//Referrer-Policy: controls what information about the page of origin is sent in the Referer header
+it('SEC08 - Security headers', () => {
+    cy.request({
+        url: 'https://www.saucedemo.com/',
+        failOnStatusCode: false
+    }).then((response) => {
+        const headers = response.headers;
 
+        cy.log(`CSP: ${headers['content-security-policy'] || 'MISSING'}`);
+        cy.log(`HSTS: ${headers['strict-transport-security'] || 'MISSING'}`);
+        cy.log(`X-Content-Type-Options: ${headers['x-content-type-options'] || 'MISSING'}`);
+        cy.log(`X-Frame-Options: ${headers['x-frame-options'] || 'MISSING'}`);
+        cy.log(`Referrer-Policy: ${headers['referrer-policy'] || 'MISSING'}`);
+        expect(response.status).to.be.lessThan(500);
+        //output on saucedemo.com -> all these headers are missing, but depending on the company's security policies, other headers may be present which helps in protecting 
+        // the application from various attacks, such as XSS, clickjacking, and data injection attacks
+    });
 });
 
 it.skip('SEC09 - Sensitive information exposure', () => {
