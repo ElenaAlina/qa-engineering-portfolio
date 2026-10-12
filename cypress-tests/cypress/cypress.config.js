@@ -10,13 +10,13 @@ module.exports = {
       "html": false,
       "json": true
     },
+  fixturesFolder: 'cypress-tests/cypress/fixtures',
+  supportFile: 'support/e2e.js',
+  specPattern: 'cypress-tests/**/*.cy.js',
   e2e: {
     
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-
-      //added for download file plugin
-      require('cypress-downloadfile/lib/addPlugin')(on, config);
+      
       return config;
     },
   },

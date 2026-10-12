@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-12T17:51:04.622Z",
+    "end": "2026-10-12T17:51:10.106Z",
+    "duration": 5484,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1ae14070-bc5b-465a-a7bd-a24b761030f3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\e2e-test-suite\\products\\products.cy.js",
+      "file": "cypress\\e2e\\e2e-test-suite\\products\\products.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cd2b7a23-6fd4-42de-a806-d6cd4414146b",
+          "title": "Product details page - Verify product details page displays correct information",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01 - Verify product list is displayed",
+              "fullTitle": "Product details page - Verify product details page displays correct information TC01 - Verify product list is displayed",
+              "timedOut": null,
+              "duration": 1100,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"inventory-container\"]').should('be.visible');",
+              "err": {},
+              "uuid": "19f24900-7473-4948-84d8-9e42ec2228b4",
+              "parentUUID": "cd2b7a23-6fd4-42de-a806-d6cd4414146b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02 - Check the number of products listed on the product list page",
+              "fullTitle": "Product details page - Verify product details page displays correct information TC02 - Check the number of products listed on the product list page",
+              "timedOut": null,
+              "duration": 817,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"inventory-item\"]').then($products => {\n  const productCount = $products.length;\n  cy.log('Number of products: ${productCount}');\n  expect(productCount).to.be.greaterThan(0);\n});",
+              "err": {},
+              "uuid": "4bc19942-1c82-474b-9fa5-aa39934810a5",
+              "parentUUID": "cd2b7a23-6fd4-42de-a806-d6cd4414146b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC03 - Check product details page displays correct information",
+              "fullTitle": "Product details page - Verify product details page displays correct information TC03 - Check product details page displays correct information",
+              "timedOut": null,
+              "duration": 994,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(1) > [data-test=\"inventory-item-description\"]').should('be.visible');\ncy.get('[data-test=\"item-4-title-link\"] > [data-test=\"inventory-item-name\"]').should('be.visible');\ncy.get(':nth-child(1) > [data-test=\"inventory-item-description\"] > .inventory_item_label > [data-test=\"inventory-item-desc\"]').should('be.visible');\ncy.get(':nth-child(1) > [data-test=\"inventory-item-description\"] > .pricebar > [data-test=\"inventory-item-price\"]').should('be.visible');\ncy.get('[data-test=\"add-to-cart-sauce-labs-backpack\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-sauce-labs-backpack-img\"]').should('be.visible');",
+              "err": {},
+              "uuid": "70237cbb-2648-4ea3-8665-bce506e04340",
+              "parentUUID": "cd2b7a23-6fd4-42de-a806-d6cd4414146b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-04 - Product added to cart: Verify product details page displays correct information",
+              "fullTitle": "Product details page - Verify product details page displays correct information TC-04 - Product added to cart: Verify product details page displays correct information",
+              "timedOut": null,
+              "duration": 1102,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"add-to-cart-test.allthethings()-t-shirt-(red)\"]').click();\ncy.get('[data-test=\"shopping-cart-link\"]').should('be.visible').click();\ncy.get('[data-test=\"cart-list\"]').should('be.visible');\ncy.get('[data-test=\"cart-quantity-label\"]').should('be.visible');\ncy.get('[data-test=\"cart-desc-label\"]').should('be.visible');\ncy.get('[data-test=\"item-quantity\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-desc\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-price\"]').should('be.visible');\ncy.get('[data-test=\"remove-test.allthethings()-t-shirt-(red)\"]').should('be.visible');\ncy.get('[data-test=\"continue-shopping\"]').should('be.visible');\ncy.get('[data-test=\"checkout\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-name\"]').should('be.visible').click();\ncy.get('.inventory_details_desc_container').should('be.visible');\ncy.get('[data-test=\"item-test.allthethings()-t-shirt-(red)-img\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-name\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-desc\"]').should('be.visible');\ncy.get('[data-test=\"inventory-item-price\"]').should('be.visible');\ncy.get('[data-test=\"remove\"]').should('be.visible');\ncy.get('[data-test=\"back-to-products\"]').should('be.visible');",
+              "err": {},
+              "uuid": "8e826906-e4b8-49c8-b788-3190e0f3cdfa",
+              "parentUUID": "cd2b7a23-6fd4-42de-a806-d6cd4414146b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "19f24900-7473-4948-84d8-9e42ec2228b4",
+            "4bc19942-1c82-474b-9fa5-aa39934810a5",
+            "70237cbb-2648-4ea3-8665-bce506e04340",
+            "8e826906-e4b8-49c8-b788-3190e0f3cdfa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4013,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

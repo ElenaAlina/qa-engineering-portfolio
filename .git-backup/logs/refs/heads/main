@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 70e2994f3e8ed4dd52d7a942f387f83ff1ca064b Elena Herghelegiu <elenaalina747@gmail.com> 1791649713 +0300	clone: from https://github.com/ElenaAlina/qa-engineering-portfolio.git
+70e2994f3e8ed4dd52d7a942f387f83ff1ca064b 5ee95b5c41fea33f7c9bc449c79d9e6b7ff122c6 Elena Herghelegiu <elenaalina747@gmail.com> 1791650175 +0300	commit: Add Cypress automation and basic security tests
+5ee95b5c41fea33f7c9bc449c79d9e6b7ff122c6 ffedca5dca823576f391e728167fd2823e60c724 Elena Herghelegiu <elenaalina747@gmail.com> 1791653207 +0300	commit: Update Cypress automation suite and Mochawesome reports
