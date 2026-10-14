@@ -1,6 +1,9 @@
 # Lessons Learned – Cypress Automation
 When I first started learning Cypress, it seemed easy to use and quite intuitive. However, after spending several hours writing automated tests, I realized that maintaining them can be challenging.
+
 One of the main difficulties I encountered was dealing with changes in the application code, unstable selectors, and hover elements that disappear too quickly for the test to interact with them reliably.
+
 I also realized that I still need to strengthen my programming skills, especially when debugging complex issues. Sometimes, Cypress error messages alone are not enough to identify the root cause, so understanding the code and knowing how to investigate the problem are essential.
 Throughout this process, I have learned how to configure Cypress, troubleshoot configuration issues, and fix problems in my test scripts, many of which were caused by my own mistakes. These experiences have helped me better understand how Cypress works and how to approach debugging more systematically.
+
 I know there is still a lot to learn. Improving my automation skills requires consistent practice, time, and experience across different projects. For now, I am focusing on building a solid foundation and learning from each challenge I encounter.
